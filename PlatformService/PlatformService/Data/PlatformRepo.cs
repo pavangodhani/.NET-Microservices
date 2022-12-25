@@ -13,14 +13,16 @@ namespace PlatformService.Data
             _dbContext = dbContext;
         }
 
-        public void CreatePlatform(Platform plat)
+        public string CreatePlatform(Platform? platform)
         {
-            if (plat == null)
+            if (platform == null)
             {
-                throw new ArgumentNullException(nameof(plat));
+                throw new ArgumentNullException(nameof(platform));
             }
-
-            _dbContext.Platforms.Add(plat);
+            platform.Id = Guid.NewGuid().ToString();
+            _dbContext.Platforms.Add(platform);
+            _dbContext.SaveChanges();
+            return platform.Id;
         }
 
         public IEnumerable<Platform> GetAllPlatforms()
@@ -31,11 +33,6 @@ namespace PlatformService.Data
         public Platform? GetPlatformById(string id)
         {
             return _dbContext.Platforms.FirstOrDefault(p => p.Id == id);
-        }
-
-        bool IPlatformRepo.SaveChanges()
-        {
-            return _dbContext.SaveChanges() > 0;
         }
     }
 }

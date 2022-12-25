@@ -3,7 +3,7 @@ namespace PlatformService.Dtos
 {
 	public class PlatformReadDto
 	{
-        public PlatformReadDto(int id, string name, string publisher, string cost)
+        public PlatformReadDto(string id, string name, string publisher, string cost)
         {
             Id = id;
             Name = name;
@@ -11,7 +11,7 @@ namespace PlatformService.Dtos
             Cost = cost;
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 

@@ -43,15 +43,11 @@ namespace PlatformService.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PlatformReadDto>> CreatePlatform(PlatformCreateDto platformCreateDto)
+        public ActionResult<string> CreatePlatform(PlatformCreateDto platformCreateDto)
         {
             var platformModel = _mapper.Map<Platform>(platformCreateDto);
-            _repository.CreatePlatform(platformModel);
-            _repository.SaveChanges();
-
-            var platformReadDto = _mapper.Map<PlatformReadDto>(platformModel);
-
-            return CreatedAtRoute(nameof(GetPlatformById), new { Id = platformReadDto.Id }, platformReadDto);
+       
+            return _repository.CreatePlatform(platformModel);
         }
     }
 }
