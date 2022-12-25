@@ -29,10 +29,14 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
+    <None Remove="Dtos\" />
+    <None Remove="Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="DomainModels\" />
     <Folder Include="Data\" />
+    <Folder Include="Dtos\" />
+    <Folder Include="Profiles\" />
   </ItemGroup>
 </Project>
