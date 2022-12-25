@@ -33,11 +33,29 @@ namespace PlatformService.Data
             {
                 Console.WriteLine("--> Seeding Data...");
 
-                //context.Platforms.AddRange(
-                //    new Platform() { Name = "Dot Net", Publisher = "Microsoft", Cost = "Free" },
-                //    new Platform() { Name = "SQL Server Express", Publisher = "Microsoft", Cost = "Free" },
-                //    new Platform() { Name = "Kubernetes", Publisher = "Cloud Native Computing Foundation", Cost = "Free" }
-                //);
+                context.Platforms.AddRange(
+                    new Platform()
+                    {
+                        Id = "101",
+                        Name = "Dot Net",
+                        Publisher = "Microsoft",
+                        Cost = "Free"
+                    },
+                    new Platform()
+                    {
+                        Id = "102",
+                        Name = "SQL Server Express",
+                        Publisher = "Microsoft",
+                        Cost = "Free"
+                    },
+                    new Platform()
+                    {
+                        Id = "103",
+                        Name = "Kubernetes",
+                        Publisher = "Cloud Native Computing Foundation",
+                        Cost = "Free"
+                    }
+                );
 
                 context.SaveChanges();
             }

@@ -17,6 +17,8 @@ builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
 var app = builder.Build();
 
+PrepDb.PrepPopulation(app, false);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -29,6 +31,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-PrepDb.PrepPopulation(app, false);
-
